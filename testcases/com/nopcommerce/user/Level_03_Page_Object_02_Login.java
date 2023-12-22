@@ -29,7 +29,6 @@ public class Level_03_Page_Object_02_Login {
 		driver.get("https://demo.nopcommerce.com/");
 
 		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
 		firstName = "Automation";
 		lastName = "Fc";
 		invalidEmail = "afc@com.@vn";
@@ -47,7 +46,7 @@ public class Level_03_Page_Object_02_Login {
 		System.out.println("Pre-condition - Step 02: Input to require field");
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
-		registerPage.inputToEmailTextbox(emailAddress);
+		registerPage.inputToEmailTextbox(existingEmail);
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(password);
 
@@ -128,11 +127,12 @@ public class Level_03_Page_Object_02_Login {
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox(password);
 		loginPage.clickToLoginButton();
-		
+
 		homePage = new HomePageObject(driver);
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 
 	}
+
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
