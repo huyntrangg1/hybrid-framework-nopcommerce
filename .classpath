@@ -5,7 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="testcases"/>
+	<classpathentry excluding="com/nopcommerce/user/Level_03_Page_Object_02_Login.java" kind="src" path="testcases"/>
 	<classpathentry kind="src" path="testdata"/>
 	<classpathentry kind="src" path="actions"/>
 	<classpathentry kind="src" path="interfaces"/>
