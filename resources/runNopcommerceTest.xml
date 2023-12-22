@@ -4,7 +4,7 @@
   <test name="Run on FireFox">
     <classes>
 <!--       <class name="com.nopcommerce.user.User_01_Register_Login"/>
- -->      <class name="com.nopcommerce.user.Level_03_Page_Object"/>
+ -->      <class name="com.nopcommerce.user.Login"/>
     </classes>
   </test> <!-- Test -->
   

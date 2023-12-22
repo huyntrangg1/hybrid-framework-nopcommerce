@@ -33,6 +33,7 @@ public class RegisterPageObject extends BasePage {
 	}
 
 	public void inputToEmailTextbox(String emailAdress) {
+		waitForElementVisible(driver, RegisterPageUI.EMAIL_TEXTBOX);
 		sendkeyToElement(driver, RegisterPageUI.EMAIL_TEXTBOX, emailAdress);
 	}
 
