@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
-import pageObjects.MyAccountPageObject;
+import pageObjects.CustomerInforPageObject;
 import pageObjects.PageGeneratorManager;
 import pageObjects.RegisterPageObject;
 
@@ -22,7 +22,7 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	private MyAccountPageObject myAccountPage;
+	private CustomerInforPageObject myAccountPage;
 	private WebDriver driver;
 	private String firstName, lastName, existingEmail, invalidEmail, notFoundEmail, password, incorrectPassword;
 
@@ -30,9 +30,6 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-		driver.get("https://demo.nopcommerce.com/");
 
 		// Cách khởi tạo 3:
 		// Ưu điểm:
@@ -118,6 +115,7 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessful(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
 	}
 
+	@Test
 	public void Login_06_Valid_Email_Password() {
 		loginPage = homePage.clickToLoginLink();
 
@@ -128,7 +126,7 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 		homePage = PageGeneratorManager.getHomePage(driver);
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 
-		myAccountPage = homePage.clickToMyAccountLink();
+		myAccountPage = homePage.openMyAccountPage();
 	}
 
 	@AfterClass

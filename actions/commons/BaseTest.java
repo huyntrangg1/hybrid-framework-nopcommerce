@@ -1,5 +1,7 @@
 package commons;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,7 +24,7 @@ public class BaseTest {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		} else if (browserName.equals("h_firefox")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+			// System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("--headless");
 			options.addArguments("window-size=1920x1080");
@@ -30,14 +32,14 @@ public class BaseTest {
 		} else if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if (browserName.equals("h_firefox")) {
-			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+		} else if (browserName.equals("h_chrome")) {
+			// System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			options.addArguments("window-size=1920x1080");
 			driver = new ChromeDriver();
 		} else if (browserName.equals("edge")) {
-			WebDriverManager.edgedriver().setup();
+			WebDriverManager.edgedriver().create();
 			driver = new EdgeDriver();
 			// } else if (browserName.equals("ie")) {
 			// WebDriverManager.iedriver().arch32().setup();
@@ -56,6 +58,9 @@ public class BaseTest {
 		} else {
 			throw new RuntimeException("Browser name invalid.");
 		}
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+		driver.get("https://demo.nopcommerce.com/");
 		return driver;
 	}
 }

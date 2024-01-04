@@ -34,8 +34,8 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 
 		// Cách khởi tạo 1: Cho việc khởi tạo page object trực tiếp ở trên testcase
 		// Ưu điểm: - 0 bị lỗi NullPointer (1 class mang ra sử dụng nhưng chưa được khởi tạo)
-		// Nhược điểm: 	- Hiển thị việc khởi tạo page/ class ở trên testcase luôn (0 tuân theo tính chất đóng gói/ che giấu sự khởi tạo của 1 đối tượng)
-		// 				- Bị lặp lại nhiều lần việc khởi tạo
+		// Nhược điểm: - Hiển thị việc khởi tạo page/ class ở trên testcase luôn (0 tuân theo tính chất đóng gói/ che giấu sự khởi tạo của 1 đối tượng)
+		// - Bị lặp lại nhiều lần việc khởi tạo
 		homePage = new HomePageObject(driver);
 		firstName = "Automation";
 		lastName = "Fc";
@@ -126,6 +126,7 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessful(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
 	}
 
+	@Test
 	public void Login_06_Valid_Email_Password() {
 		homePage.clickToLoginLink();
 

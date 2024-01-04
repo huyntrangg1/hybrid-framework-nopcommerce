@@ -5,7 +5,7 @@
   <parameter name="browser" value="firefox"/>
     <classes>
 <!--       <class name="com.nopcommerce.user.User_01_Register_Login"/>
- -->      <class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_III"/>
+ -->      <class name="com.nopcommerce.user.Level_07_Switch_Page"/>
     </classes>
   </test> <!-- Test -->
   
@@ -13,7 +13,7 @@
   <parameter name="browser" value="chrome"/>
     <classes>
 <!--       <class name="com.nopcommerce.user.User_01_Register_Login"/>
- -->      <class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_III"/>
+ -->      <class name="com.nopcommerce.user.Level_07_Switch_Page"/>
     </classes>
   </test>
   
@@ -21,7 +21,7 @@
   <parameter name="browser" value="edge"/>
     <classes>
 <!--       <class name="com.nopcommerce.user.User_01_Register_Login"/>
- -->      <class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_III"/>
+ -->      <class name="com.nopcommerce.user.Level_07_Switch_Page"/>
     </classes>
   </test>
   

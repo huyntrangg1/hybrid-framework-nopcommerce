@@ -116,6 +116,7 @@ public class Level_06_Page_Generator_Manager_II extends BaseTest {
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessful(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
 	}
 
+	@Test
 	public void Login_06_Valid_Email_Password() {
 		homePage.clickToLoginLink();
 
