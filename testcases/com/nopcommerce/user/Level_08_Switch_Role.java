@@ -47,6 +47,7 @@ public class Level_08_Switch_Role extends BaseTest {
 		userPassword = "123456";
 		adminEmailAddress = "admin@yourstore.com";
 		adminPassword = "admin";
+		
 	}
 
 	@Test

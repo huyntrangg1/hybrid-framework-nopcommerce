@@ -99,7 +99,7 @@ public class BaseTest {
 		} else {
 			throw new RuntimeException("Browser name invalid.");
 		}
-		driver.manage().window().setPosition(new Point(0, 0));
+		driver.manage().window().maximize();
 		driver.get(GlobalConstants.PORTAL_DEV_URL);
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
