@@ -12,24 +12,24 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.AddressPageObject;
-import pageObjects.CustomerInforPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyProductReviewPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
-import pageObjects.RewardPointPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.portal.nopcommerce.UserAddressPageObject;
+import pageObjects.portal.nopcommerce.UserCustomerInforPageObject;
+import pageObjects.portal.nopcommerce.UserHomePageObject;
+import pageObjects.portal.nopcommerce.UserLoginPageObject;
+import pageObjects.portal.nopcommerce.UserMyProductReviewPageObject;
+import pageObjects.portal.nopcommerce.UserRegisterPageObject;
+import pageObjects.portal.nopcommerce.UserRewardPointPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
 
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
-	private CustomerInforPageObject customerInforPage;
-	private AddressPageObject addressPage;
-	private RewardPointPageObject rewardPointPage;
-	private MyProductReviewPageObject myProductReviewPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
+	private UserCustomerInforPageObject customerInforPage;
+	private UserAddressPageObject addressPage;
+	private UserRewardPointPageObject rewardPointPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
 	private WebDriver driver;
 	private String firstName, lastName, emailAddress, password;
 
@@ -43,7 +43,7 @@ public class Level_07_Switch_Page extends BaseTest {
 
 		// Nhược điểm:
 
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		firstName = "Automation";
 		lastName = "Fc";
 		emailAddress = "afc" + generateFakeNumber() + "@mail.vn";
@@ -52,10 +52,9 @@ public class Level_07_Switch_Page extends BaseTest {
 
 	@Test
 	public void User_01_Register() {
-
 		System.out.println("Pre-condition - Step 01: Click to Register link");
-
 		registerPage = homePage.openRegisterPage();
+
 		System.out.println("Pre-condition - Step 02: Input to require field");
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastnameTextbox(lastName);
@@ -78,7 +77,7 @@ public class Level_07_Switch_Page extends BaseTest {
 		loginPage.inputToPasswordTextbox(password);
 		loginPage.clickToLoginButton();
 
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 	}
 
