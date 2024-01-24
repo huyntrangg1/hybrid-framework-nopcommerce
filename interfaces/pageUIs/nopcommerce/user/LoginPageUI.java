@@ -1,4 +1,4 @@
-package pageUI.nopcommerce.user;
+package pageUIs.nopcommerce.user;
 
 public class LoginPageUI {
 	public static final String loginButton = "css=button[class*='login-button']";

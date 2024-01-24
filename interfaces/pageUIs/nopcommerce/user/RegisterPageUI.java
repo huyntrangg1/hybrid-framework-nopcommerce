@@ -1,4 +1,4 @@
-package pageUI.nopcommerce.user;
+package pageUIs.nopcommerce.user;
 
 public class RegisterPageUI {
 	public static final String FIRST_NAME_TEXTBOX = "ID=FirstName";

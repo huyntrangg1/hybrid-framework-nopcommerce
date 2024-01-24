@@ -1,4 +1,4 @@
-package pageUI.nopcommerce.admin;
+package pageUIs.nopcommerce.admin;
 
 public class AdminLoginPageUI {
 	public static final String EMAIL_TEXTBOX = "xpath=//input[@id='Email']";

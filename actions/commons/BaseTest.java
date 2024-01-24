@@ -62,7 +62,7 @@ public class BaseTest {
 		return driver;
 	}
 
-	protected WebDriver getBrowserDriver(String browserName, String environment) {
+	protected WebDriver getBrowserDriver(String browserName, String appUrl) {
 		if (browserName.equals("firefox")) {
 			// System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 			driver = new FirefoxDriver();
@@ -100,14 +100,14 @@ public class BaseTest {
 			throw new RuntimeException("Browser name invalid.");
 		}
 		driver.manage().window().maximize();
-		driver.get(GlobalConstants.PORTAL_DEV_URL);
+		driver.get(appUrl);
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 
 		return driver;
 	}
 
-	private String getEnvironmentUrl(String environmentName) {
+	protected String getEnvironmentUrl(String environmentName) {
 		String url = null;
 		switch (environmentName) {
 		case "DEV":

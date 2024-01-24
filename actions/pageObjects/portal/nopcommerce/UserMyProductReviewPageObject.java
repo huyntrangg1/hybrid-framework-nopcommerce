@@ -3,8 +3,8 @@ package pageObjects.portal.nopcommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUI.nopcommerce.user.MyProductReviewPageUI;
-import pageUI.nopcommerce.user.RewardPointPageUI;
+import pageUIs.nopcommerce.user.MyProductReviewPageUI;
+import pageUIs.nopcommerce.user.RewardPointPageUI;
 
 public class UserMyProductReviewPageObject extends BasePage {
 	private WebDriver driver;

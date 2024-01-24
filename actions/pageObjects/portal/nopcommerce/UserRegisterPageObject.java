@@ -3,7 +3,7 @@ package pageObjects.portal.nopcommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUI.nopcommerce.user.RegisterPageUI;
+import pageUIs.nopcommerce.user.RegisterPageUI;
 
 public class UserRegisterPageObject extends BasePage {
 
