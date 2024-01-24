@@ -1,5 +1,8 @@
 package com.jquery.datatable;
 
+import java.util.List;
+
+import org.checkerframework.checker.units.qual.Acceleration;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -13,6 +16,8 @@ import pageObjects.jQuery.HomePageObject;
 public class Level_10_DataTable_DataGrid extends BaseTest {
 	private WebDriver driver;
 	HomePageObject homePage;
+	List<String> actualAllCountryValues;
+	List<String> expectedCountryValues;
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
@@ -58,7 +63,12 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 
 	@Test
 	public void Table_03_Enter_To_Header() {
-		homePage.getValueEachRowAtAllPage();
+		// Ham doc du lieu cua file country.txt
+		// Luu vao 1 List<String> = Expected Value
+
+		// Actual Value
+		actualAllCountryValues = homePage.getValueEachRowAtAllPage();
+		Assert.assertEquals(actualAllCountryValues, expectedCountryValues);
 	}
 
 	@AfterClass

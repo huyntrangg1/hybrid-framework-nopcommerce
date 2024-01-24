@@ -7,4 +7,5 @@ public class HomePageUI {
 	public static final String TOTAL_PAGINATION = "css=ul.qgrd-pagination-ul>li.qgrd-pagination-page";
 	public static final String PAGINATION_PAGE_INDEX = "xpath=//ul[@class='qgrd-pagination-ul']/li[@class='qgrd-pagination-page'][%s]/a";
 	public static final String All_ROW_EACH_PAGE = "xpath=//tbody/tr";
+	public static final String All_ROW_COUNTRY_EACH_PAGE = "xpath=//tbody/tr/td[@data-key='country']";
 }
