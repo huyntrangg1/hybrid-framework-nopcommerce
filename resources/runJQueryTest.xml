@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite  name="NopCommerce">
 
-<parameter name="url" value ="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
+<parameter name="url" value ="https://blueimp.github.io/jQuery-File-Upload/"/>
   <test name="Run on FireFox">
   <parameter name="browser" value="firefox"/>
     <classes>
-     <class name="com.jquery.datatable.Level_10_DataTable_DataGrid"/>
+     <class name="com.jquery.uploadFiles.Level_11_Upload_File"/>
     </classes>
   </test> <!-- Test -->
   

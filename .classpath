@@ -13,6 +13,11 @@
 	<classpathentry kind="lib" path="libraries/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="libraries/testng-6.14.3.jar"/>
 	<classpathentry kind="lib" path="libraries/selenium-server-4.16.1.jar"/>
+	<classpathentry kind="lib" path="librariesLog4j/commons-codec-1.11.jar"/>
+	<classpathentry kind="lib" path="librariesLog4j/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="librariesLog4j/commons-lang3-3.8.1.jar"/>
+	<classpathentry kind="lib" path="librariesLog4j/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="librariesLog4j/log4j-1.2.16.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

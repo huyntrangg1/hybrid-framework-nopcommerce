@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite  name="NopCommerce">
+<suite name="NopCommerce">
 
-<parameter name="environment" value ="DEV"/>
-  <test name="Run on FireFox">
-  <parameter name="browser" value="firefox"/>
-    <classes>
-     <class name="com.nopcommerce.user.Level_09_Dynamic_Locator"/>
-    </classes>
-  </test> <!-- Test -->
-  
-<!--     <test name="Run on Chrome">
-  <parameter name="browser" value="chrome"/>
-    <classes>
-       <class name="com.nopcommerce.user.User_01_Register_Login"/>
-       <class name="com.nopcommerce.user.Level_09_Dynamic_Locator"/>
-    </classes>
-  </test>
-  
-    <test name="Run on Edge">
-  <parameter name="browser" value="edge"/>
-    <classes>
-      <class name="com.nopcommerce.user.Level_09_Dynamic_Locator"/>
-    </classes>
-  </test>
-  
-   -->
+	<listeners>
+		<listener class-name="commons.MethodListener" ></listener>
+	</listeners>
+	<parameter name="environment" value="DEV" />
+	<test name="Run on FireFox">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_12_Assert_Verify" />
+		</classes>
+	</test> <!-- Test -->
+
+	<!-- <test name="Run on Chrome"> <parameter name="browser" value="chrome"/> 
+		<classes> <class name="com.nopcommerce.user.User_01_Register_Login"/> <class 
+		name="com.nopcommerce.user.Level_09_Dynamic_Locator"/> </classes> </test> 
+		<test name="Run on Edge"> <parameter name="browser" value="edge"/> <classes> 
+		<class name="com.nopcommerce.user.Level_09_Dynamic_Locator"/> </classes> 
+		</test> -->
 </suite> <!-- Suite -->

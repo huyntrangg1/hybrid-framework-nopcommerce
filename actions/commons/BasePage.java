@@ -1,6 +1,8 @@
 package commons;
 
+import java.io.File;
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +25,7 @@ import pageObjects.portal.nopcommerce.UserCustomerInforPageObject;
 import pageObjects.portal.nopcommerce.UserHomePageObject;
 import pageObjects.portal.nopcommerce.UserMyProductReviewPageObject;
 import pageObjects.portal.nopcommerce.UserRewardPointPageObject;
+import pageUIs.jQuery.uploadFiles.BasePageJQueryUIs;
 import pageUIs.nopcommerce.admin.AdminLoginPageUI;
 import pageUIs.nopcommerce.user.BasePageUI;
 import pageUIs.nopcommerce.user.HomePageUI;
@@ -171,7 +174,12 @@ public class BasePage {
 
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
 		Select select = new Select(getElement(driver, locatorType));
-		select.selectByValue(textItem);
+		select.selectByVisibleText(textItem);
+	}
+
+	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem, String... dynamicValues) {
+		Select select = new Select(getElement(driver, getDynamicXpath(locatorType, dynamicValues)));
+		select.selectByVisibleText(textItem);
 	}
 
 	public String getFirstSelectedItemInDefaultDropdown(WebDriver driver, String locatorType) {
@@ -247,8 +255,22 @@ public class BasePage {
 		}
 	}
 
+	public void checkTheCheckboxOrRadio(WebDriver driver, String locatorType, String... dynamicValues) {
+		WebElement element = getElement(driver, getDynamicXpath(locatorType, dynamicValues));
+		if (!element.isSelected()) {
+			element.click();
+		}
+	}
+
 	public void uncheckTheCheckbox(WebDriver driver, String locatorType) {
 		WebElement element = getElement(driver, locatorType);
+		if (element.isSelected()) {
+			element.click();
+		}
+	}
+
+	public void uncheckTheCheckbox(WebDriver driver, String locatorType, String... dynamicValues) {
+		WebElement element = getElement(driver, getDynamicXpath(locatorType, dynamicValues));
 		if (element.isSelected()) {
 			element.click();
 		}
@@ -342,6 +364,16 @@ public class BasePage {
 		return (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].validationMessage;", getElement(driver, locator));
 	}
 
+	public boolean isImageLoaded(WebDriver driver, String locator, String... dynamicValues) {
+		boolean status = (boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+				getElement(driver, getDynamicXpath(locator, dynamicValues)));
+		if (status) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public boolean isImageLoaded(WebDriver driver, String locator) {
 		boolean status = (boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", getElement(driver, locator));
 		if (status) {
@@ -400,6 +432,23 @@ public class BasePage {
 	public void waitForAllElementsPresence(WebDriver driver, String locatorType) {
 		WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(longTimeOut));
 		explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByLocator(locatorType)));
+	}
+
+	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+		// Đường dẫn của thư mục uploadFile: Window/Mac/Linux
+		String filePath = System.getProperty("user.dir") + File.separator + "uploadFiles" + File.separator;
+
+		// Đường dẫn của tất cả các file
+		// 1 file: java.png
+		// nhiều file: String[] fileNames = {"CSharp.png","Java.png", "Python.png"};
+		String fullFileName = "";
+		for (String file : fileNames) {
+			// "" + G:\project - training\Online_Class_20\03 - Java Hybrid Framework/uploadFiles/ + Java.png + "\n"
+			fullFileName = fullFileName + filePath + file + "\n";
+		}
+		// trim: xóa kí tự khoảng trắng/ tab xuống dòng ở đầu hoặc cuối chuỗi (String)
+		fullFileName = fullFileName.trim();
+		getElement(driver, BasePageJQueryUIs.UPLOAD_FILE).sendKeys(fullFileName);
 	}
 
 	// Tôi ưu ở bài học Level_07(lần 1)
